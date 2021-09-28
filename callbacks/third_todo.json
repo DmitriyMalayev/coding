@@ -1,0 +1,12 @@
+[
+  {
+    "text": "learn react",
+    "hours": 3,
+    "really": true
+  },
+  {
+    "text": "learn redux",
+    "hours": 3,
+    "really": true
+  }
+]

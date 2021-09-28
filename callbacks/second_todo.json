@@ -1,0 +1,12 @@
+[
+  {
+    "text": "send resumes",
+    "hours": 3,
+    "really": true
+  },
+  {
+    "text": "cold calling",
+    "hours": 3,
+    "really": false
+  }
+]

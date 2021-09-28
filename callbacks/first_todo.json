@@ -1,0 +1,12 @@
+[
+  {
+    "text": "learn javascript",
+    "hours": 3,
+    "really": true
+  },
+  {
+    "text": "interview prep",
+    "hours": 3,
+    "really": true
+  }
+]
