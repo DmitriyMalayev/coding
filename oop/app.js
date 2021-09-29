@@ -1,33 +1,69 @@
-const userOne = {
-  username: "dmitriy.malayev",
-  email: "dmitriy.malayev@gmail.com",
-  phone: "347-761-4403",
+class User {
+  constructor(username, email) {
+    this.username = username;
+    this.email = email;
+    this.score = 0;
+  }
   login() {
-    console.log("The user has logged in successfully");
-  },
+    console.log(`${this.username} has just logged in`);
+    return this;
+  }
   logout() {
-    console.log("The user has logged out successfully");
-  },
-};
+    console.log(`${this.username} has just logged out`);
+    return this;
+  }
+  incScore() {
+    this.score += 1;
+    console.log(`${this.username} has a score of ${this.score}`);
+    return this;
+  }
+}
 
-console.log(userOne.username, userOne.email, userOne.phone);
+class Admin extends User {
+  constructor(username, title) {
+    super(username);
+    this.title = title;
+  }
+  deleteUser(user) {
+    users = users.filter((u) => u.username !== user.username);
+  }
+}
 
-userOne.login();
+const userOne = newUser("dmitriy.malayev", "dmitriy.malayev@gmail.com");
 
-const userTwo = {
-  username: "dmitriy",
-  email: "dmitriy@gmail.com",
-  phone: "718-699-4403",
-  login() {
-    console.log("The user has logged in successfully");
-  },
-  logout() {
-    console.log("The user has logged out successfully");
-  },
-};
-console.log(userTwo.username, userTwo.email, userTwo.phone);
+userOne.login().incScore().incScore().logout();
 
+userTwo = new Admin("dmitriy", "dmitriy@gmail.com", "King");
 
-// Classes
-// Blueprint for an object which describes how it should be made. 
+let users = [userOne, userTwo];
 
+userTwo.deleteUser(userOne);
+console.log(userTwo);
+
+const numbers = ["one", "two", "three"];
+const arrayConstructor = new Array(20, 25, 30);
+// arrayConstructor => [20, 25, 30]
+
+const objectConstructor = new Object();
+// objectConstructor => {}
+
+/* proto property
+Any methods that a particular object has access to are listed in proto
+
+In JavaScript primitive data types become temporarily wrapped and behave like an object so we can call methods on it.
+Object Literal Notation vs. Contructor Notation
+
+# Constructor Notation
+
+constructor(){} This is important because it sets the properties
+
+`The "new" keyword`
+
+1. It creates a new empty object without properties
+2. It binds the value of "this" to the new empty object
+3. It calls the constructor function to "build the object"
+
+We don't need comma separators
+Returning the object instance.
+Without a return it will be undefined and we won't be able to chain methods. It doesn't have to be return this.
+*/
