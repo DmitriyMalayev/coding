@@ -67,3 +67,40 @@ We don't need comma separators
 Returning the object instance.
 Without a return it will be undefined and we won't be able to chain methods. It doesn't have to be return this.
 */
+
+// BEFORE CLASSES
+function alsoUsers(username, email) {
+  this.username = username;
+  this.email = email;
+  // this.login = function () {
+  // console.log(`${this.username} has logged in as ${this.email}`)
+  // }
+}
+
+alsoUser = new alsoUsers("Dima", "dima@gmail.com");
+alsoUser.login();
+
+User.prototype.login = function () {
+  console.log(`${this.username} has logged in as ${this.email}`);
+};
+
+User.prototype.logout = function () {
+  console.log(`${this.username} has logged out as ${this.email}`);
+};
+
+/* 
+Prototypal Inheritence
+We can't user super without a class, we have to use call.
+this refers to the object we just created 
+*/
+function Admin(username, email, admin) {
+  User.call(this, username, email);
+  this.admin = admin;
+}
+
+// Inherit methods from User to be present in Admin
+
+Admin.prototype = Object.create(User.prototype);
+Admin.prototype.deleteUser = function (username) {
+  //example
+};
